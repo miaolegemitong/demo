@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+	<classPathEntry
+			location="/Users/mitong/.m2/repository/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar" />
+
+
+	<context id="context1" targetRuntime="MyBatis3">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://127.0.0.1:3306/miaolegemitong?useUnicode=true&amp;characterEncoding=UTF-8"
+						userId="root" password="n)@e(okxcex3).x" />
+
+		<javaModelGenerator targetPackage="com.miaolegemitong.demo.springboot.model"
+							targetProject="./src/main/java" />
+		<!--<sqlMapGenerator targetPackage="com.sankuai.hbdata.olap.mapper1"-->
+						 <!--targetProject="./src/main/resources" />-->
+		<javaClientGenerator targetPackage="com.miaolegemitong.demo.springboot.dao"
+							targetProject="./src/main/java" type="ANNOTATEDMAPPER" />
+
+		<!--<table schema="CL_DEMO" tableName="t_query_history" />-->
+		<!--<table schema="CL_DEMO" tableName="t_login_info" />-->
+		<!--<table schema="CL_DEMO" tableName="t_cube" />-->
+		<!--<table schema="CL_DEMO" tableName="t_cube_dim" />-->
+		<!--<table schema="CL_DEMO" tableName="t_cube_fact" />-->
+		<!--<table schema="CL_DEMO" tableName="t_datasource" />-->
+		<!--<table schema="CL_DEMO" tableName="t_dimension_hierarchy" />-->
+
+		<!--<table schema="CL_DEMO" tableName="t_search_condition" />-->
+		<!--<table schema="CL_DEMO" tableName="dic_global_map" />-->
+
+		<table tableName="demo_table"  domainObjectName="DemoPO" />
+	</context>
+
+	
+
+</generatorConfiguration>

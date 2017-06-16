@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info">
+    <Properties>
+        <Property name="PID">????</Property>
+        <Property name="LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n%wEx</Property>
+    </Properties>
+
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{yyyy/MM/dd HH:mm:ss.SSS} %t [%p] %c{1} (%F:%L) %msg%n" />
+        </Console>
+
+        <!--异步磁盘appender，默认按天&按512M文件大小切分日志，默认最多保留30个日志文件-->
+        <XMDFile name="XMDFileAppender" fileName="request.log">
+            <Property name="xmdFilePath">./logs/</Property>
+        </XMDFile>
+    </appenders>
+
+    <loggers>
+        <!--可以对某个类单独设置logger-->
+
+
+        <logger name="demo" level="info">
+            <appender-ref ref="XMDFileAppender"/>
+            <appender-ref ref="LcAsyncAppender"/>   <!--日志传入远程日志中心 -->
+        </logger>
+
+        <root  level="info">
+            <appender-ref ref="Console" />
+            <appender-ref ref="XMDFileAppender"/>
+            <appender-ref ref="LcAsyncAppender"/>   <!--日志传入远程日志中心 -->
+        </root>
+    </loggers>
+</configuration>
